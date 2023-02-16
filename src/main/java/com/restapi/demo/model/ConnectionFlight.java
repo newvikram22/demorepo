@@ -1,7 +1,6 @@
 package com.restapi.demo.model;
 
 import java.sql.Time;
-import java.util.Date;
 
 public class ConnectionFlight {
 

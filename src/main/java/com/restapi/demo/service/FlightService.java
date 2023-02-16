@@ -1,7 +1,6 @@
 package com.restapi.demo.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +16,9 @@ public class FlightService {
     FlightRepository flightReposittory;
 	
 	
-	public Flight saveFlight(Flight flight)
+	public List<Flight> saveFlight(List<Flight> flight)
 	{
-		Flight newflight = flightReposittory.save(flight);
+		List<Flight> newflight = flightReposittory.saveAll(flight);
 		return newflight;
 	}
 	

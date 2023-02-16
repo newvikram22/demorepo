@@ -8,9 +8,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 
 @Entity
-public class Flight {
+@Table(name = "flightfaretbl")
+public class Flightfare {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,20 +25,16 @@ public class Flight {
 	private String arrivalAirport;
 	private Time departureTime;
 	private Time arrivalTime;
+	private double fareAmount;
 	
 	
 	
-	public Flight() {
+	public Flightfare() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "Flight [id=" + id + ", flightDate=" + flightDate + ", flightNo=" + flightNo + ", departureAirport="
-				+ departureAirport + ", arrivalAirport=" + arrivalAirport + ", departureTime=" + departureTime
-				+ ", arrivalTime=" + arrivalTime + "]";
-	}
-	public Flight(Date flightDate, String flightNo, String departureAirport, String arrivalAirport,
-			Time departureTime, Time arrivalTime) {
+	
+	public Flightfare(Date flightDate, String flightNo, String departureAirport, String arrivalAirport,
+			Time departureTime, Time arrivalTime, double fareAmount) {
 		super();
 		this.flightDate = flightDate;
 		this.flightNo = flightNo;
@@ -43,7 +42,17 @@ public class Flight {
 		this.arrivalAirport = arrivalAirport;
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
+		this.fareAmount = fareAmount;
 	}
+
+	public double getFareAmount() {
+		return fareAmount;
+	}
+
+	public void setFareAmount(double fareAmount) {
+		this.fareAmount = fareAmount;
+	}
+
 	public int getId() {
 		return id;
 	}
